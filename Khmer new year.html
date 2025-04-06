@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="khmer New Year🌷">
+    <link rel="icon" type="image/psd" href="mom.png">
+    <title>Khmer New Year🌷</title>
+    <style>
+        :root {
+            --gap-scale-factor: 250;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: center;
+            margin: 0;
+            padding: 75px 0;
+            background: linear-gradient(#ffffff, #f9d6d6);
+            font-family: "Steph", sans-serif;
+        }
+
+        @font-face {
+            font-family: "Steph";
+            src: url("assets/fonts/steph-font.ttf");
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Steph";
+            src: url("assets/fonts/steph-font-bold.ttf");
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 20px auto 0 auto;
+        }
+
+        #togepi-gif {
+            width: 500px;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 50px auto;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 75px;
+        }
+
+        button {
+            border-radius: 8px;
+            min-width: 100px;
+            max-width: 550px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            white-space: nowrap;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: transform 0.1s ease;
+        }
+
+        button:hover {
+            scale: 1.05;
+        }
+
+        #yes-btn {
+            transform-origin: center top;
+            color: white;
+            background-color: #57915e;
+        }
+
+        #no-btn {
+            color: white;
+            background-color: #db4e4e;
+        }
+
+        @media (max-width: 1150px) {
+        :root {
+            --gap-scale-factor: 200;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        #togepi-gif {
+            width: 380px;
+            height: 304px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 50px auto;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            border-radius: 8px;
+            min-width: 100px;
+            max-width: 400px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            white-space: nowrap;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.1s ease;
+        }
+        }
+
+        @media (max-width: 600px) {
+        :root {
+            --gap-scale-factor: 50;
+        }
+        body {
+            padding-top: 100px;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        #togepi-gif {
+            width: 300px;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin: 32px auto;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            border-radius: 8px;
+            min-width: 60px;
+            max-width: 175px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: transform 0.1s ease;
+        }
+        }  
+
+        .Text {
+            font-size: 30pt;
+            text-transform: none;
+            text-align: center;
+            background: linear-gradient(to right,yellow, green, blue, #fc72ff,#8f68ff,#487bff,#8f68ff,#fc72ff,red, plum, salmon,  gray, white);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate-gradient 2.5s linear infinite;
+        }
+        @keyframes animate-gradient {
+            to {
+                background-position: 200%;
+            }
+        }
+        .image-pic {
+            width: 300px;
+            height: 230px;
+        }
+    </style>
+</head>
+<body>
+    <center class="Text">
+        <font face="Khmer Mool">សួរស្ដីឆ្នាំថ្មី ២០២៥<font>
+    </center>
+    <div class="container">
+        <img class="image-pic" src="play.png" alt="songkian festival"/>
+    </div>
+        <div class="btn-container">
+            <button id="yes-btn"  onclick="window.location.href='Part.html'"><font face="Khmer Mool" color="white">យល់ព្រម<font></button>
+            <button id="no-btn" onclick="window.location.href='Siemreap.html'"><font face="Khmer Mool" color="white">បោះបង់<font></button>
+        </div>
+    <script>
+        let noClicks = 1;
+        const maxNoClicks = 4;
+        const minNoScale = 0.65;
+        let noScale = 1;
+        let yesScale = 1;
+        const gifElement = document.getElementById("togepi-gif");
+        const noButton = document.getElementById("no-btn");
+        const yesButton = document.getElementById("yes-btn");
+        const buttonContainer = document.querySelector(".btn-container");
+        const yesButtonStyle = window.getComputedStyle(yesButton);
+        const maxYesWidth = parseFloat(yesButtonStyle.maxWidth);
+
+        const gifs = ["meow.gif", "Sad.gif", "Run.gif", "Sleep.gif"];
+        const buttonMessages = ["Are you sure??", "Pookie please", "Pookie PLEASE", "You can't do this to me!"];
+
+        noButton.addEventListener("click", () => {
+            if (noClicks < maxNoClicks) {
+                gifElement.src = gifs[noClicks];
+            }
+
+            noButton.textContent = buttonMessages[noClicks % maxNoClicks];
+
+            noButton.style.width = 'auto';
+            noButton.style.width = `${noButton.scrollWidth}px`;
+
+            if (noScale > minNoScale) {
+                noScale -= 0.1;
+                noButton.style.transform = `scale(${noScale})`;
+            }
+
+            const baseWidth = parseFloat(yesButtonStyle.width);
+            const scaledWidth = baseWidth * yesScale;
+
+            console.log(`Scaled Width: ${scaledWidth}, Max Width: ${maxYesWidth}`);
+
+            if (scaledWidth < maxYesWidth) {
+                yesScale += 0.5; 
+                yesButton.style.transform = `scale(${yesScale})`;
+
+                
+                const rootStyles = getComputedStyle(document.documentElement);
+                const gapScaleFactor = parseFloat(rootStyles.getPropertyValue("--gap-scale-factor")) || 250;
+
+                
+                const currentGap = parseFloat(buttonContainer.style.gap) || 20;
+                const newGap = Math.sqrt(currentGap * gapScaleFactor); 
+                buttonContainer.style.gap = `${newGap}px`;
+            }
+
+            noClicks++;
+        });
+    </script>
+</body>
+</html>
